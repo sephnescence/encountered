@@ -1,19 +1,20 @@
 _type: export
 __export_format: 4
-__export_date: 2023-09-27T08:36:18.346Z
-__export_source: insomnia.desktop.app:v2023.5.3
+__export_date: 2023-09-27T10:44:47.276Z
+__export_source: insomnia.desktop.app:v2023.5.8
 resources:
   - _id: req_18b99f10ef9e4f82ad92d99a24d4ed64
     parentId: wrk_37727fb56eb74321a77c662b61b413dd
-    modified: 1695803724465
+    modified: 1695804585678
     created: 1695799414626
     url: http://localhost/graphql
-    name: Hello World
+    name: List Users
     description: ""
     method: POST
     body:
       mimeType: application/graphql
-      text: '{"query":"query {\n\tgreetings\n}"}'
+      text: '{"query":"query listAllUsers {\n\tusers
+        {\n\t\tid\n\t\tname\n\t\temail\n\t\tcreated_at\n\t\tupdated_at\n\t}\n}","operationName":"listAllUsers"}'
     parameters: []
     headers:
       - name: Content-Type
@@ -38,6 +39,34 @@ resources:
     description: ""
     scope: collection
     _type: workspace
+  - _id: req_a429f58ddc844d64955604fe23f0fa40
+    parentId: wrk_37727fb56eb74321a77c662b61b413dd
+    modified: 1695811369924
+    created: 1695804712977
+    url: http://localhost/graphql
+    name: Find User
+    description: ""
+    method: POST
+    body:
+      mimeType: application/graphql
+      text: '{"query":"query findUser {\n\tuser (id: \"3\")
+        {\n\t\tid\n\t\tname\n\t\temail\n\t\tcreated_at\n\t\tupdated_at\n\t}\n}","operationName":"findUser"}'
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: Insomnia/2023.5.3
+    authentication: {}
+    metaSortKey: -1693896197671.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
   - _id: env_fe8c20fd56db9702f32ace9ff7b4d5452db250cf
     parentId: wrk_37727fb56eb74321a77c662b61b413dd
     modified: 1695799410248
