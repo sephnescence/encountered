@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2023-09-27T11:10:27.383Z
+__export_date: 2023-09-27T11:26:13.630Z
 __export_source: insomnia.desktop.app:v2023.5.8
 resources:
   - _id: req_18b99f10ef9e4f82ad92d99a24d4ed64
@@ -71,7 +71,7 @@ resources:
     _type: request
   - _id: req_a429f58ddc844d64955604fe23f0fa40
     parentId: wrk_37727fb56eb74321a77c662b61b413dd
-    modified: 1695811369924
+    modified: 1695813907250
     created: 1695804712977
     url: http://localhost/graphql
     name: Find User
@@ -79,7 +79,7 @@ resources:
     method: POST
     body:
       mimeType: application/graphql
-      text: '{"query":"query findUser {\n\tuser (id: \"3\")
+      text: '{"query":"query findUser {\n\tuser (id: \"11\")
         {\n\t\tid\n\t\tname\n\t\temail\n\t\tcreated_at\n\t\tupdated_at\n\t}\n}","operationName":"findUser"}'
     parameters: []
     headers:
@@ -89,6 +89,93 @@ resources:
         value: Insomnia/2023.5.3
     authentication: {}
     metaSortKey: -1693896197671.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_b3dceea58257463f9592f807665dfbb8
+    parentId: wrk_37727fb56eb74321a77c662b61b413dd
+    modified: 1695813942731
+    created: 1695813643217
+    url: http://localhost/graphql
+    name: Create User
+    description: ""
+    method: POST
+    body:
+      mimeType: application/graphql
+      text: '{"query":"mutation CreateUser {\n\tcreateUser (name: \"Create User\",
+        email: \"create.user@example.com\", password: \"password\")
+        {\n\t\tid\n\t\tname\n\t\temail\n\t\tcreated_at\n\t\tupdated_at\n\t}\n}","operationName":"CreateUser"}'
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: Insomnia/2023.5.3
+    authentication: {}
+    metaSortKey: -1693420393432.875
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_687ed8c141d6404b9571749e86627f57
+    parentId: wrk_37727fb56eb74321a77c662b61b413dd
+    modified: 1695813947487
+    created: 1695813851072
+    url: http://localhost/graphql
+    name: Update User
+    description: ""
+    method: POST
+    body:
+      mimeType: application/graphql
+      text: '{"query":"mutation UpdateUser {\n\tupdateUser (id: \"11\", name: \"Update
+        User\", email: \"update.user@example.com\", password:
+        \"still_not_secure\")
+        {\n\t\tid\n\t\tname\n\t\temail\n\t\tcreated_at\n\t\tupdated_at\n\t}\n}","operationName":"UpdateUser"}'
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: Insomnia/2023.5.3
+    authentication: {}
+    metaSortKey: -1693182491313.5625
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_438ac508f2414824bbd74883901e7282
+    parentId: wrk_37727fb56eb74321a77c662b61b413dd
+    modified: 1695813934664
+    created: 1695813918297
+    url: http://localhost/graphql
+    name: Delete User
+    description: ""
+    method: POST
+    body:
+      mimeType: application/graphql
+      text: '{"query":"mutation DeleteUser {\n\tdeleteUser (id: \"11\")
+        {\n\t\tid\n\t}\n}","operationName":"DeleteUser"}'
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: Insomnia/2023.5.3
+    authentication: {}
+    metaSortKey: -1693063540253.9062
     isPrivate: false
     settingStoreCookies: true
     settingSendCookies: true
