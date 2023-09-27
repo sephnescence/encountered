@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2023-09-27T10:53:42.494Z
+__export_date: 2023-09-27T11:10:27.383Z
 __export_source: insomnia.desktop.app:v2023.5.8
 resources:
   - _id: req_18b99f10ef9e4f82ad92d99a24d4ed64
@@ -39,6 +39,36 @@ resources:
     description: ""
     scope: collection
     _type: workspace
+  - _id: req_530181a9b76840a895a41274d4b641d0
+    parentId: wrk_37727fb56eb74321a77c662b61b413dd
+    modified: 1695812870950
+    created: 1695812260830
+    url: http://localhost/graphql
+    name: List Users with Pagination
+    description: ""
+    method: POST
+    body:
+      mimeType: application/graphql
+      text: '{"query":"query listAllUsersWithPagination {\n\tusersPaginated(first: 5,
+        page: 2) {\n\t\tdata
+        {\n\t\t\tid\n\t\t\tname\n\t\t\temail\n\t\t\tcreated_at\n\t\t\tupdated_at\n\t\t}\n\t\tpaginatorInfo
+        {\n\t\t\tcount\n\t\t\tcurrentPage\n\t\t\tfirstItem\n\t\t\thasMorePages\n\t\t\tlastItem\n\t\t\tlastPage\n\t\t\tperPage\n\t\t\ttotal\n\t\t}\n\t}\n}","operationName":"listAllUsersWithPagination"}'
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: Insomnia/2023.5.3
+    authentication: {}
+    metaSortKey: -1694847806148.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
   - _id: req_a429f58ddc844d64955604fe23f0fa40
     parentId: wrk_37727fb56eb74321a77c662b61b413dd
     modified: 1695811369924

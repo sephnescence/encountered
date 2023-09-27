@@ -8,5 +8,6 @@ type User {
 
 type Query {
     users: [User!]! @all
+    usersPaginated: [User!]! @paginate
     user(id: ID! @eq): User @find
 }
