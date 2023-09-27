@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2023-09-27T10:44:47.276Z
+__export_date: 2023-09-27T10:53:42.494Z
 __export_source: insomnia.desktop.app:v2023.5.8
 resources:
   - _id: req_18b99f10ef9e4f82ad92d99a24d4ed64
@@ -59,6 +59,36 @@ resources:
         value: Insomnia/2023.5.3
     authentication: {}
     metaSortKey: -1693896197671.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_9e88b48a42b84ed5912a444d0b3dda36
+    parentId: wrk_37727fb56eb74321a77c662b61b413dd
+    modified: 1695811889573
+    created: 1695811868939
+    url: http://localhost/graphql
+    name: Find Multiple Users with Aliases
+    description: ""
+    method: POST
+    body:
+      mimeType: application/graphql
+      text: '{"query":"query findUser {\n\tuserOne: user (id: \"1\")
+        {\n\t\tid\n\t\tname\n\t\temail\n\t\tcreated_at\n\t\tupdated_at\n\t}\n\tuserTwo:
+        user (id: \"2\")
+        {\n\t\tid\n\t\tname\n\t\temail\n\t\tcreated_at\n\t\tupdated_at\n\t}\n}","operationName":"findUser"}'
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: Insomnia/2023.5.3
+    authentication: {}
+    metaSortKey: -1692944589194.25
     isPrivate: false
     settingStoreCookies: true
     settingSendCookies: true
