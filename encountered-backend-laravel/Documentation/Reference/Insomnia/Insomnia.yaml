@@ -1,0 +1,58 @@
+_type: export
+__export_format: 4
+__export_date: 2023-09-27T08:36:18.346Z
+__export_source: insomnia.desktop.app:v2023.5.3
+resources:
+  - _id: req_18b99f10ef9e4f82ad92d99a24d4ed64
+    parentId: wrk_37727fb56eb74321a77c662b61b413dd
+    modified: 1695803724465
+    created: 1695799414626
+    url: http://localhost/graphql
+    name: Hello World
+    description: ""
+    method: POST
+    body:
+      mimeType: application/graphql
+      text: '{"query":"query {\n\tgreetings\n}"}'
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: Insomnia/2023.5.3
+    authentication: {}
+    metaSortKey: -1695799414626
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_37727fb56eb74321a77c662b61b413dd
+    parentId: null
+    modified: 1695799410245
+    created: 1695799410245
+    name: Encountered
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: env_fe8c20fd56db9702f32ace9ff7b4d5452db250cf
+    parentId: wrk_37727fb56eb74321a77c662b61b413dd
+    modified: 1695799410248
+    created: 1695799410248
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1695799410248
+    _type: environment
+  - _id: jar_fe8c20fd56db9702f32ace9ff7b4d5452db250cf
+    parentId: wrk_37727fb56eb74321a77c662b61b413dd
+    modified: 1695799410253
+    created: 1695799410253
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
