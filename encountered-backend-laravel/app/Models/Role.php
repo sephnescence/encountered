@@ -9,8 +9,8 @@ class Role extends Model
 {
     use HasFactory;
 
-    public static int $ROLE_ADMIN = 1;
-    public static int $ROLE_USER = 2;
+    public static string $ROLE_ADMIN = '487f28cf-09ea-4de1-9592-45cc78177b70';
+    public static string $ROLE_USER = '4a7bbb11-322f-4f45-a796-b3b3f62c8f9e';
 
     public function users()
     {

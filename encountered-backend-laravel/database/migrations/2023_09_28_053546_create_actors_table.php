@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('actors', function (Blueprint $table) {
-            $table->id();
+            $table->uuid()->primary();
             $table->text('name');
             $table->json('aliases');
             $table->timestamps();

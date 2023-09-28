@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('performances', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('performance_type_id')->references('id')->on('performance_types');
+            $table->uuid()->primary();
+            $table->foreignUuid('performance_type_id')->references('uuid')->on('performance_types');
             $table->text('name');
             $table->text('image_location')->nullable();
             $table->json('aliases');

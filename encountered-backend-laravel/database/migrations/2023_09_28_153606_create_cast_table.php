@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cast', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('actor_id')->references('id')->on('actors');
-            $table->foreignId('performance_id')->references('id')->on('performances');
+            $table->uuid()->primary();
+            $table->foreignUuid('actor_id')->references('uuid')->on('actors');
+            $table->foreignUuid('performance_id')->references('uuid')->on('performances');
             $table->timestamps();
         });
     }
