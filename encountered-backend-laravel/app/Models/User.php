@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Watched::class, 'user_id');
     }
+
+    public function role()
+    {
+        return $this->hasOne(Role::class, 'role_id');
+    }
 }
