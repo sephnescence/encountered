@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class PerformanceType extends Model
 {
     use HasFactory;
+
+    public function performances()
+    {
+        return $this->hasMany(Performance::class, 'performance_type_id');
+    }
 }

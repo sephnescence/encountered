@@ -10,4 +10,14 @@ class Cast extends Model
     use HasFactory;
 
     protected $table = 'cast'; // Force Laravel refer to the non pluralised "cast"
+
+    public function actor()
+    {
+        return $this->belongsTo(Actor::class, 'actor_id');
+    }
+
+    public function performance()
+    {
+        return $this->belongsTo(Performance::class, 'performance_id');
+    }
 }

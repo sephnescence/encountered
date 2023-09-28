@@ -10,4 +10,14 @@ class Watched extends Model
     use HasFactory;
 
     protected $table = 'watched'; // Force Laravel refer to the non pluralised "watched"
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function performance()
+    {
+        return $this->belongsTo(Performance::class, 'performance_id');
+    }
 }
