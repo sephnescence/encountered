@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Watched extends Model
 {
-    use HasFactory;
+    use HasFactory, HasUuids;
 
     protected $table = 'watched'; // Force Laravel refer to the non pluralised "watched"
 
