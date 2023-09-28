@@ -14,18 +14,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('roles', function (Blueprint $table) {
-            $table->uuid()->primary();
+            $table->uuid('id')->primary();
             $table->text('name');
             $table->timestamps();
         });
 
         DB::table('roles')->insert([
-            ['uuid' => Role::$ROLE_ADMIN, 'name' => 'Admin'],
-            ['uuid' => Role::$ROLE_USER, 'name' => 'User'],
+            ['id' => Role::$ROLE_ADMIN, 'name' => 'Admin'],
+            ['id' => Role::$ROLE_USER, 'name' => 'User'],
         ]);
 
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignUuid('role_id')->references('uuid')->on('roles');
+            $table->foreignUuid('role_id')->constrained('roles');
         });
     }
 

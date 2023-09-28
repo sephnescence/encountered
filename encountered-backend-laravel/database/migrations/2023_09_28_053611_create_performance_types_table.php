@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('performance_types', function (Blueprint $table) {
-            $table->uuid()->primary();
+            $table->uuid('id')->primary();
             $table->text('name');
             $table->timestamps();
         });

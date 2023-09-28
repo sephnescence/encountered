@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('favourites', function (Blueprint $table) {
-            $table->uuid()->primary();
-            $table->foreignUuid('actor_id')->references('uuid')->on('actors');
-            $table->foreignUuid('user_id')->references('uuid')->on('users');
+            $table->uuid('id')->primary();
+            $table->foreignUuid('actor_id')->constrained('actors');
+            $table->foreignUuid('user_id')->constrained('users');
             $table->timestamps();
         });
     }

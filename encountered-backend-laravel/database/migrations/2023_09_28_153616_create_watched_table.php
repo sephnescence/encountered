@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('watched', function (Blueprint $table) {
-            $table->uuid()->primary();
-            $table->foreignUuid('user_id')->references('uuid')->on('users');
-            $table->foreignUuid('performance_id')->references('uuid')->on('performances');
+            $table->uuid('id')->primary();
+            $table->foreignUuid('user_id')->constrained('users');
+            $table->foreignUuid('performance_id')->constrained('performances');
             $table->text('notes');
             $table->timestamps();
         });
