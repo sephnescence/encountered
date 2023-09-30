@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->uuid('id')->primary()->default(new Expression('gen_random_uuid()'));
-            $table->foreignUuid('role_id')->constrained('roles')->default(Role::$ROLE_USER);
+            $table->foreignUuid('role_id')->default(Role::$ROLE_USER)->constrained('roles');
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
