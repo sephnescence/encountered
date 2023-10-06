@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -40,6 +41,8 @@ class Role extends Resource
     {
         return [
             Text::make('name'),
+
+            HasMany::make('Users'),
         ];
     }
 
