@@ -1,8 +1,10 @@
 <?php
 
+use App\Models\PerformanceType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Query\Expression;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -17,6 +19,11 @@ return new class extends Migration
             $table->text('name');
             $table->timestamps();
         });
+
+        DB::table('performance_types')->insert([
+            ['id' => PerformanceType::$PERFORMANCE_TYPE_ANIME, 'name' => 'Anime'],
+            ['id' => PerformanceType::$PERFORMANCE_TYPE_MOVIE, 'name' => 'Movie'],
+        ]);
     }
 
     /**
