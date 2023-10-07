@@ -12,7 +12,6 @@ return new class extends Migration
         Schema::create('actors', function (Blueprint $table) {
             $table->uuid('id')->primary()->default(new Expression('gen_random_uuid()'));
             $table->text('name');
-            $table->jsonb('aliases'); // BTTODO: Change to a relationship
             $table->timestamps();
         });
     }

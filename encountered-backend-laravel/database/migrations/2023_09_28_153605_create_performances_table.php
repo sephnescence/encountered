@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreignUuid('performance_type_id')->constrained('performance_types');
             $table->text('name');
             $table->text('image_location')->nullable();
-            $table->jsonb('aliases'); // BTTODO: Change to a relationship
             $table->timestamps();
         });
     }

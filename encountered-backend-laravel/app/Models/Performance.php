@@ -11,7 +11,6 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Ramsey\Uuid\Uuid;
 
 /**
- * @property array<string> $aliases // BTTODO - Is this field still around
  * @property array<Cast> $cast
  * @property Carbon $created_at
  * @property Carbon $deleted_at

@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Ramsey\Uuid\Uuid;
 
 /**
- * @property array<string> $aliases
  * @property array<Cast> $cast
  * @property Carbon $created_at
  * @property Carbon $deleted_at
