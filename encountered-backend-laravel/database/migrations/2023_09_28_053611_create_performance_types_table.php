@@ -21,8 +21,12 @@ return new class extends Migration
         });
 
         DB::table('performance_types')->insert([
-            ['id' => PerformanceType::$PERFORMANCE_TYPE_ANIME, 'name' => 'Anime'],
-            ['id' => PerformanceType::$PERFORMANCE_TYPE_MOVIE, 'name' => 'Movie'],
+            ['id' => PerformanceType::$PERFORMANCE_TYPE_ANIMATED_MOVIE, 'name' => 'Animated Movie'],
+            ['id' => PerformanceType::$PERFORMANCE_TYPE_ANIMATED_SERIES, 'name' => 'Animated Series'],
+            ['id' => PerformanceType::$PERFORMANCE_TYPE_GAME, 'name' => 'Game'],
+            ['id' => PerformanceType::$PERFORMANCE_TYPE_LIVE_ACTION_SERIES, 'name' => 'Live Action Series'],
+            ['id' => PerformanceType::$PERFORMANCE_TYPE_PLAY, 'name' => 'Play'],
+            ['id' => PerformanceType::$PERFORMANCE_TYPE_SINGER, 'name' => 'Singer'],
         ]);
     }
 

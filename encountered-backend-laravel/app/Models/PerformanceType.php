@@ -21,9 +21,14 @@ class PerformanceType extends Model
 {
     use HasFactory, HasUuids;
 
-    public static string $PERFORMANCE_TYPE_ANIME = '06016e06-932d-4314-99ba-e45675630647';
-    public static string $PERFORMANCE_TYPE_MOVIE = '5b128e18-0d98-49dd-ae57-0fd13e35e44a';
-
+    public static string $PERFORMANCE_TYPE_ANIMATED_MOVIE = 'fb230e6c-dc78-4525-ac7b-53f0875580e4';
+    public static string $PERFORMANCE_TYPE_ANIMATED_SERIES = '8e79599c-bd11-43b9-9a8a-1bdbcc632aca';
+    public static string $PERFORMANCE_TYPE_GAME = '1666e03d-a87c-416c-8b93-39bbd083748d';
+    public static string $PERFORMANCE_TYPE_LIVE_ACTION_MOVIE = '8002c726-fd4f-4c26-b0ca-d3a3ec6bfafc';
+    public static string $PERFORMANCE_TYPE_LIVE_ACTION_SERIES = 'b3518707-0221-4f7c-8c2d-4f02a39dc4b9';
+    public static string $PERFORMANCE_TYPE_PLAY = '6de838ce-e8a3-4384-9e81-4ea643bee530';
+    public static string $PERFORMANCE_TYPE_SINGER = '3dc4af70-3b24-4b53-8f4c-1c6c6f3fed5a';
+    
     public function performances(): HasMany
     {
         return $this->hasMany(Performance::class, 'performance_type_id');
