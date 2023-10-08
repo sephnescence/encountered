@@ -17,7 +17,8 @@ return new class extends Migration
             $table->foreignUuid('user_id')->constrained('users');
             $table->foreignUuid('performance_id')->constrained('performances');
             $table->text('notes');
-            $table->timestamps();
+            $table->timestampsTz();
+            $table->timestampTz('deleted_at')->nullable();
         });
     }
 

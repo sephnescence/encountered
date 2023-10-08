@@ -16,7 +16,8 @@ return new class extends Migration
             $table->uuid('id')->primary()->default(new Expression('gen_random_uuid()'));
             $table->foreignUuid('actor_id')->constrained('actors');
             $table->foreignUuid('performance_id')->constrained('performances');
-            $table->timestamps();
+            $table->timestampsTz();
+            $table->timestampTz('deleted_at')->nullable();
         });
     }
 

@@ -2,19 +2,16 @@
 
 namespace Database\Seeders;
 
+use App\Models\Performance;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class PerformanceSeeder extends Seeder
 {
     use WithoutModelEvents;
     
     public function run(): void
     {
-        $this->call([
-            ActorSeeder::class,
-            PerformanceSeeder::class,
-            UserSeeder::class,
-        ]);
+        Performance::factory(10)->create();
     }
 }

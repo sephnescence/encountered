@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Ramsey\Uuid\Uuid;
@@ -30,9 +31,9 @@ class Performance extends Model
         return $this->hasMany(Cast::class, 'performance_id');
     }
 
-    public function performanceType(): HasOne
+    public function performanceType(): BelongsTo
     {
-        return $this->hasOne(PerformanceType::class, 'performance_type_id');
+        return $this->belongsTo(PerformanceType::class, 'performance_type_id');
     }
 
     public function watched(): HasMany // BTTODO - Curious if this works since it's not a plural

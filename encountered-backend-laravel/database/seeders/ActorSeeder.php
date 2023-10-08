@@ -2,19 +2,16 @@
 
 namespace Database\Seeders;
 
+use App\Models\Actor;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class ActorSeeder extends Seeder
 {
     use WithoutModelEvents;
-    
+
     public function run(): void
     {
-        $this->call([
-            ActorSeeder::class,
-            PerformanceSeeder::class,
-            UserSeeder::class,
-        ]);
+        Actor::factory(10)->create();
     }
 }
