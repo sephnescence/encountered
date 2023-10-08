@@ -18,3 +18,18 @@ This will also be a monolithic repository
 ---
 
 Dive in with: cd encountered-backend-laravel && ./vendor/bin/sail up
+
+---
+
+Getting started on your first install
+
+1. We need to generate an `auth.json` file with `composer config http-basic.nova.laravel.com <email> <token>`
+1. Ensure composer is installed locally on your host. BTTODO - It's a good idea to make a composer container
+1. Copy `.env.example` to `.env` and fill out appropriate details
+1. Run `composer update`. This will populate the vendor folder. If `auth.json` has been made correctly, it won't ask you to log in to Nova
+1. Run `sail build`. This should work without issue. This can take a few minutes. BTTODO - Is it even necessary though?
+1. Run `npm install`
+1. Run `sail up` to start the backend
+1. Run `npm run dev` to start the frontend
+1. Run `sail artisan migrate:fresh`
+1. Run `sail artisan db:seed`
