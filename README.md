@@ -23,6 +23,7 @@ Dive in with: cd encountered-backend-laravel && ./vendor/bin/sail up
 
 Getting started on your first install
 
+1. You'll need to install composer locally
 1. We need to generate an `auth.json` file with `composer config http-basic.nova.laravel.com <email> <token>`
 1. Ensure composer is installed locally on your host. BTTODO - It's a good idea to make a composer container
 1. Copy `.env.example` to `.env` and fill out appropriate details
@@ -33,3 +34,7 @@ Getting started on your first install
 1. Run `npm run dev` to start the frontend
 1. Run `sail artisan migrate:fresh`
 1. Run `sail artisan db:seed`
+
+Notes
+
+1. You may move your `.env` and `auth.json` files to `.env.backup` and `auth.json.backup` so that they can be ignored by git
