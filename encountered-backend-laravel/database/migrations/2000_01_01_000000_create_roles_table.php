@@ -17,7 +17,7 @@ return new class extends Migration
         Schema::create('roles', function (Blueprint $table) {
             $table->uuid('id')->primary()->default(new Expression('gen_random_uuid()'));
             $table->text('name');
-            $table->timestamps();
+            $table->timestampsTz();
         });
 
         DB::table('roles')->insert([

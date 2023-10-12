@@ -1,8 +1,10 @@
 <?php
 
+use App\Models\PerformanceType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Query\Expression;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -15,8 +17,18 @@ return new class extends Migration
         Schema::create('performance_types', function (Blueprint $table) {
             $table->uuid('id')->primary()->default(new Expression('gen_random_uuid()'));
             $table->text('name');
-            $table->timestamps();
+            $table->timestampsTz();
+            $table->timestampTz('deleted_at')->nullable();
         });
+
+        DB::table('performance_types')->insert([
+            ['id' => PerformanceType::$PERFORMANCE_TYPE_ANIMATED_MOVIE, 'name' => 'Animated Movie'],
+            ['id' => PerformanceType::$PERFORMANCE_TYPE_ANIMATED_SERIES, 'name' => 'Animated Series'],
+            ['id' => PerformanceType::$PERFORMANCE_TYPE_GAME, 'name' => 'Game'],
+            ['id' => PerformanceType::$PERFORMANCE_TYPE_LIVE_ACTION_SERIES, 'name' => 'Live Action Series'],
+            ['id' => PerformanceType::$PERFORMANCE_TYPE_PLAY, 'name' => 'Play'],
+            ['id' => PerformanceType::$PERFORMANCE_TYPE_SINGER, 'name' => 'Singer'],
+        ]);
     }
 
     /**

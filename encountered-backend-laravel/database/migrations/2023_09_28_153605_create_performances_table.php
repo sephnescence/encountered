@@ -17,8 +17,8 @@ return new class extends Migration
             $table->foreignUuid('performance_type_id')->constrained('performance_types');
             $table->text('name');
             $table->text('image_location')->nullable();
-            $table->json('aliases');
-            $table->timestamps();
+            $table->timestampsTz();
+            $table->timestampTz('deleted_at')->nullable();
         });
     }
 

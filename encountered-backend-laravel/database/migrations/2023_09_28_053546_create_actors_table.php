@@ -12,8 +12,8 @@ return new class extends Migration
         Schema::create('actors', function (Blueprint $table) {
             $table->uuid('id')->primary()->default(new Expression('gen_random_uuid()'));
             $table->text('name');
-            $table->json('aliases');
-            $table->timestamps();
+            $table->timestampsTz();
+            $table->timestampTz('deleted_at')->nullable();
         });
     }
 
