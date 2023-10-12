@@ -2,8 +2,11 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
-use Laravel\Nova\Fields\ID;
+use App\Nova\Filters\FilterCastByActor;
+use App\Nova\Filters\FilterCastByPerformance;
+use App\Nova\Filters\FilterCastByPerformanceType;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Cast extends Resource
@@ -40,7 +43,9 @@ class Cast extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make()->sortable(),
+            BelongsTo::make('actor'),
+            BelongsTo::make('performance'),
+            Text::make('performance.performanceType.name')->onlyOnIndex(),
         ];
     }
 
@@ -63,7 +68,11 @@ class Cast extends Resource
      */
     public function filters(NovaRequest $request)
     {
-        return [];
+        return [
+            new FilterCastByActor,
+            new FilterCastByPerformance,
+            new FilterCastByPerformanceType,
+        ];
     }
 
     /**

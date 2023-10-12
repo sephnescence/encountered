@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             ActorSeeder::class,
             PerformanceSeeder::class,
+            CastSeeder::class,
             UserSeeder::class,
         ]);
     }
