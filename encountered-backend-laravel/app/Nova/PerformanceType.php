@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class PerformanceType extends Resource
@@ -41,6 +42,7 @@ class PerformanceType extends Resource
     {
         return [
             ID::make()->sortable(),
+            Text::make('name'),
         ];
     }
 

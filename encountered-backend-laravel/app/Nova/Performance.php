@@ -2,8 +2,11 @@
 
 namespace App\Nova;
 
+use App\Nova\Filters\FilterPerformancesByPerformanceType;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Performance extends Resource
@@ -40,7 +43,11 @@ class Performance extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make()->sortable(),
+            Text::make('name'),
+
+            // While you can do this, you should instead do something like BelongsTo::make('PerformanceType'),
+            // Text::make('performanceType.name'),
+            BelongsTo::make('PerformanceType'),
         ];
     }
 
@@ -63,7 +70,9 @@ class Performance extends Resource
      */
     public function filters(NovaRequest $request)
     {
-        return [];
+        return [
+            new FilterPerformancesByPerformanceType,
+        ];
     }
 
     /**
