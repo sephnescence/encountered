@@ -41,7 +41,6 @@ class Actor extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make()->sortable(),
             Text::make('name'),
         ];
     }
