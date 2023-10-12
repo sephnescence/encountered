@@ -23,23 +23,33 @@ Dive in with: cd encountered-backend-laravel && ./vendor/bin/sail up
 
 Getting started on your first install
 
-1. You'll need to install composer locally
-1. We need to generate an `auth.json` file with `composer config http-basic.nova.laravel.com <email> <token>`
-1. Ensure composer is installed locally on your host. BTTODO - It's a good idea to make a composer container
-1. Copy `.env.example` to `.env` and fill out appropriate details
-1. Run `composer update`. This will populate the vendor folder. If `auth.json` has been made correctly, it won't ask you to log in to Nova
-1. Run `sail build`. This should work without issue. This can take a few minutes. BTTODO - Is it even necessary though?
-1. Run `npm install`
-1. Run `sail up` to start the backend
-1. Run `npm run dev` to start the frontend
-1. Run `sail artisan migrate:fresh`
-1. Run `sail artisan db:seed`
-1. Run `sail artisan app:encountered:inject-initial-admin`
-1. You will need to create an admin account. This can be done with the following SQL
+1. `cd encountered-backend-laravel`
+1. Copy `auth.json.example` to `auth.json` first, and update it with your nova credentials
+1. You can install the vendor folder locally with the composer docker container. It might ask for credentials to install nova if the above step doesn't work. Do not accept the offer to store the credentials in `/tmp/auth.json`
 
-   ```SQL
-   INSERT INTO public.users (role_id,"name",email,email_verified_at,"password",remember_token,created_at,updated_at,deleted_at) VALUES
-   ('487f28cf-09ea-4de1-9592-45cc78177b70','Admin','admin@example.com',NULL,'$2y$10$HLJS5ksuI4Tve1YV1k0vy.xUBXHRAHQBFyJ9Sc5I.MYglcqfVLkFK',NULL,'2023-10-12 14:43:41.000','2023-10-12 14:43:41.000',NULL);
+    ```bash
+   docker run --rm --interactive --tty --volume $PWD:/app composer install
+    ```
+
+1. If the above didn't work, try referring to https://hub.docker.com/_/composer to see if the container has moved or similar
+1. Copy `.env.example` to `.env` and fill out appropriate details
+1. `docker run --rm --interactive --tty --volume $PWD:/app composer update` for good measure
+1. `APP_KEY` may not exist yet, but you'll be able to generate one soon
+1. Run `./vendor/bin/sail build`. This should work without issue. This can take a few minutes. BTTODO - Is it even necessary though?
+1. Run `npm install`
+1. Run `sail up` to start the backend. You should get a message saying `INFO Server running on [http://0.0.0.0:80]`. Don't click it yet
+1. Run `npm run dev` to start the frontend
+1. Now head to the site. There's an issue with loading assets on 0.0.0.0. You'll have better luck going to `http://localhost` instead. For whatever reason Nova works just fine on 0.0.0.0
+1. Click `[Generate app key]` if prompted to
+1. Run `./vendor/bin/sail artisan migrate:fresh`
+1. Run `./vendor/bin/sail artisan db:seed`
+1. Run `./vendor/bin/sail artisan app:encountered:inject-initial-admin`
+1. You can verify the `Architecture` running on your machine with `docker image inspect <id>`. Search for `Architecture`. The selenium container is a good one to check, as by default the seleniarm package is in `docker-compose.yml`. If you've got any `amd64` architecture images on an `x86` machine and vice versa, it's a good idea to make a `docker-compose.override.yml` file and override the image. For example
+
+   ```yaml
+   services:
+      selenium:
+         image: selenium/standalone-chrome
    ```
 
 Notes
