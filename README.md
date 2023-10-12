@@ -34,6 +34,13 @@ Getting started on your first install
 1. Run `npm run dev` to start the frontend
 1. Run `sail artisan migrate:fresh`
 1. Run `sail artisan db:seed`
+1. Run `sail artisan app:encountered:inject-initial-admin`
+1. You will need to create an admin account. This can be done with the following SQL
+
+   ```SQL
+   INSERT INTO public.users (role_id,"name",email,email_verified_at,"password",remember_token,created_at,updated_at,deleted_at) VALUES
+   ('487f28cf-09ea-4de1-9592-45cc78177b70','Admin','admin@example.com',NULL,'$2y$10$HLJS5ksuI4Tve1YV1k0vy.xUBXHRAHQBFyJ9Sc5I.MYglcqfVLkFK',NULL,'2023-10-12 14:43:41.000','2023-10-12 14:43:41.000',NULL);
+   ```
 
 Notes
 
