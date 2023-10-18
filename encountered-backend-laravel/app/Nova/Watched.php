@@ -2,8 +2,8 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
-use Laravel\Nova\Fields\ID;
+use App\Nova\Filters\FilterWatchedByUser;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Watched extends Resource
@@ -40,7 +40,8 @@ class Watched extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make()->sortable(),
+            BelongsTo::make('performance'),
+            BelongsTo::make('user'),
         ];
     }
 
@@ -63,7 +64,9 @@ class Watched extends Resource
      */
     public function filters(NovaRequest $request)
     {
-        return [];
+        return [
+            new FilterWatchedByUser,
+        ];
     }
 
     /**

@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             CastSeeder::class,
             UserSeeder::class,
             FavouriteSeeder::class,
+            WatchedSeeder::class,
         ]);
     }
 }
