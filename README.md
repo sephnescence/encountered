@@ -27,9 +27,9 @@ Getting started on your first install
 1. Copy `auth.json.example` to `auth.json` first, and update it with your nova credentials
 1. You can install the vendor folder locally with the composer docker container. It might ask for credentials to install nova if the above step doesn't work. Do not accept the offer to store the credentials in `/tmp/auth.json`
 
-    ```bash
+   ```bash
    docker run --rm --interactive --tty --volume $PWD:/app composer install
-    ```
+   ```
 
 1. If the above didn't work, try referring to https://hub.docker.com/_/composer to see if the container has moved or similar
 1. Copy `.env.example` to `.env` and fill out appropriate details
@@ -48,10 +48,13 @@ Getting started on your first install
 
    ```yaml
    services:
-      selenium:
-         image: selenium/standalone-chrome
+     selenium:
+       image: selenium/standalone-chrome
    ```
 
 Notes
 
-1. You may move your `.env` and `auth.json` files to `.env.backup` and `auth.json.backup` so that they can be ignored by git
+1. You may rename the following files to append `.backup` so they can be ignored by git
+   1. Your `.env`
+   1. Your `auth.json`
+   1. Your `docker-composer.override.yml.backup`
