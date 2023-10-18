@@ -3,9 +3,7 @@
 namespace App\Nova;
 
 use App\Nova\Filters\FilterPerformancesByPerformanceType;
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
