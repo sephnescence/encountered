@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             PerformanceSeeder::class,
             CastSeeder::class,
             UserSeeder::class,
+            FavouriteSeeder::class,
         ]);
     }
 }
