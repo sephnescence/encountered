@@ -7,11 +7,11 @@
 /vendor
 .env
 .env.backup
+.env.testing.backup
 .env.production
 .phpunit.result.cache
 docker-compose.override.yml.backup
 docker-compose.override.yml
-# auth.json.backup
 Homestead.json
 Homestead.yaml
 auth.json
