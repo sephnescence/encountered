@@ -2,8 +2,9 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
-use Laravel\Nova\Fields\ID;
+use App\Nova\Filters\FilterFavouriteByActor;
+use App\Nova\Filters\FilterFavouriteByUser;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Favourite extends Resource
@@ -40,7 +41,8 @@ class Favourite extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make()->sortable(),
+            BelongsTo::make('actor'),
+            BelongsTo::make('user'),
         ];
     }
 
@@ -63,7 +65,10 @@ class Favourite extends Resource
      */
     public function filters(NovaRequest $request)
     {
-        return [];
+        return [
+            new FilterFavouriteByActor,
+            new FilterFavouriteByUser,
+        ];
     }
 
     /**
