@@ -58,3 +58,12 @@ Notes
    1. Your `.env`
    1. Your `auth.json`
    1. Your `docker-composer.override.yml.backup`
+
+---
+
+Testing
+
+1. You can run the whole test suite with `sail test`
+1. For now it's set up to use your local environment so that you don't have to waste time restoring the database before running a test
+   1. But you MUST ensure a test uses `RefreshDatabase`
+1. An example test run with a filter `sail test --testsuite=Feature --filter RunsInExampleFolderTest`
